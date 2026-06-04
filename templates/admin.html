@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="padding: 20px; overflow-x: auto;">
+    <h2 style="color: #4b75e0;">Διαχείριση Πελατών & Ενεργειών</h2>
+
+    <table border="1" style="width:100%; border-collapse: collapse; min-width: 1000px; background-color: white;">
+        <thead style="background-color: #4b75e0; color: white; text-align: left;">
+            <tr>
+                <th style="padding: 12px;">Ημερομηνία</th>
+                <th style="padding: 12px;">Τύπος / Υπηρεσία</th>
+                <th style="padding: 12px;">Στοιχεία Επικοινωνίας</th>
+                <th style="padding: 12px;">Αρχικό Μήνυμα</th>
+                <th style="padding: 12px;">Ενέργειες Διαχειριστή (Notes)</th>
+                <th style="padding: 12px;">Διαχείριση</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lead in leads %}
+            <tr style="border-bottom: 2px solid #eee;">
+                <td style="padding: 10px; font-size: small;">{{ lead[7] }}</td>
+
+                <td style="padding: 10px;">
+                    {% if lead[4] != 'Γενική Επικοινωνία' %}
+                        <b style="color: #e38d1c;">[ΠΡΟΣΦΟΡΑ]</b><br>{{ lead[4] }}
+                    {% else %}
+                        <b style="color: #777;">[ΕΠΑΦΗ]</b>
+                    {% endif %}
+                </td>
+
+                <td style="padding: 10px;">
+                    <b>{{ lead[1] }}</b><br>
+                    <span style="color: #1d1add;">{{ lead[2] }}</span><br> {{ lead[3] }} </td>
+
+                <td style="padding: 10px; font-size: small; max-width: 200px;">{{ lead[5] }}</td>
+
+
+                <td style="padding: 10px; background-color: #fef9e7; font-size: 0.85rem; max-width: 250px;">
+                    <div style="max-height: 100px; overflow-y: auto; white-space: pre-wrap;">
+                        {{ lead[6] if lead[6] else 'Εκκρεμεί...' }}
+                    </div>
+                </td>
+
+
+                <td style="padding: 10px; text-align: center;">
+                    <a href="{{ url_for('edit_lead', id=lead[0]) }}"
+                       style="display: inline-block; padding: 5px 10px; background: #28a745; color: white; text-decoration: none; border-radius: 3px; margin-bottom: 5px;">
+                       Επεξεργασία
+                    </a>
+                    <br>
+                    <a href="{{ url_for('delete_lead', id=lead[0]) }}"
+                       style="display: inline-block; padding: 5px 10px; background: #dc3545; color: white; text-decoration: none; border-radius: 3px;"
+                       onclick="return confirm('Προσοχή! Θέλετε να διαγράψετε οριστικά αυτόν τον πελάτη;')">
+                       Διαγραφή
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

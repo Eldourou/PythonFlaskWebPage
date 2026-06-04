@@ -1,0 +1,43 @@
+{# Ιδανικό URL: https://www.gentikis.gr/services #}
+{% extends "base.html" %}
+
+{% block title %}Υπηρεσίες Υδραυλικού, Αποφράξεις & Φυσικό Αέριο | Κηφισιά{% endblock %}
+{% block description %}Αναλαμβάνουμε αποφράξεις με κάμερα, ανακαινίσεις μπάνιου, εντοπισμό διαρροών, εγκαταστάσεις θέρμανσης και ενεργειακές βελτιώσεις στην Κηφισιά.{% endblock %}
+
+{% block content %}
+<section class="content">
+    <p>
+        <img src="{{ url_for('static', filename='images/colekter.jpg')}}" alt="colekter">
+        <img src="{{ url_for('static', filename='images/bathroom.jpg')}}" alt="μπάνιο">
+        <img src="{{ url_for('static', filename='images/piping.jpg')}}" alt="Σωληνώσεις διπλού νιπτήρα">
+        <img src="{{ url_for('static', filename='images/boiler.jpg')}}" alt="μπόιλερ τριπλής ενέργειας">
+        <img src="{{ url_for('static', filename='images/filter.jpg')}}" alt="φίλτρο μικροσωματιδίων">
+        <img src="{{ url_for('static', filename='images/solarWaterHeater.jpg')}}" alt="Ηλιακός θερμοσίφωνας"><br/>
+    </p>
+
+
+    <h1>Οι Υπηρεσίες μας</h1> <h2>Η εταιρεία μας αναλαμβάνει:</h2> <ul class="services-list">
+        <li>Υδραυλικές Εργασίες
+            <a href="{{ url_for('get_quote', service='Υδραυλικές Εργασίες') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+        <li>Θέρμανση-Κλιματισμός-Ενδοδαπέδια
+            <a href="{{ url_for('get_quote', service='Θέρμανση-Κλιματισμός') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+        <li>Φυσικό Αέριο
+            <a href="{{ url_for('get_quote', service='Φυσικό Αέριο') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+        <li>Αποφράξεις (χρήση κάμερας)
+            <a href="{{ url_for('get_quote', service='Αποφράξεις') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+        <li>Ανακαινίσεις Μπάνιου
+            <a href="{{ url_for('get_quote', service='Ανακαινίσεις Μπάνιου') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+        <li>Ενεργειακές Βελτιώσεις
+            <a href="{{ url_for('get_quote', service='Ενεργειακές Βελτιώσεις') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+        <li>Εντοπισμός Διαρροών
+            <a href="{{ url_for('get_quote', service='Εντοπισμός Διαρροών') }}" class="quote-btn">Ζητήστε Προσφορά</a>
+        </li>
+    </ul>
+</section>
+{% endblock %}

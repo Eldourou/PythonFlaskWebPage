@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Αίτηση Προσφοράς{% endblock %}
+{% block description %}Ζητήστε μια δωρεάν προσφορά για την υπηρεσία {{ service }} από τον Λεωνίδα Γεντίκη.{% endblock %}
+
+{% block content %}
+<section class="column">
+    <h1>Αίτηση Προσφοράς για: {{ service }}</h1>
+    <form action="{{ url_for('send_data') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="service_interest" value="{{ service }}">
+
+        <label for="Name">Όνοματεπώνυμο*:</label>
+        <input type="text" id="Name" name="Name" required placeholder="Το όνομά σας">
+
+        <label for="phone">Τηλέφωνο*:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Το τηλέφωνό σας">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Το email σας">
+
+        <label for="comments">Περιγραφή Έργου:</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Περιγράψτε μας τι χρειάζεστε για την υπηρεσία {{ service }}"></textarea>
+
+        <div class="form-buttons">
+            <input type="submit" value="Αποστολή Αιτήματος">
+            <input type="reset" value="Καθαρισμός">
+        </div>
+    </form>
+</section>
+{% endblock %}

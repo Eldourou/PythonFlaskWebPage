@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="el"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | Γεντίκης Λεωνίδας</title>
+    <meta name="description" content="{% block description %}Εξειδικευμένες υδραυλικές υπηρεσίες στην Κηφισιά από το 1999.{% endblock %}">
+
+    <link rel="canonical" href="https://www.gentikis.gr{{ request.path }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+
+    <script type="application/ld+json">
+   {
+      "@context": "https://schema.org",
+      "@type": "Plumber",
+      "name": "Γεντίκης Λεωνίδας - Υδραυλικές Εγκαταστάσεις & Φυσικό Αέριο",
+      "image": "https://www.gentikis.gr/static/images/logotipo.png",
+      "@id": "https://www.gentikis.gr/#plumber",
+      "url": "https://www.gentikis.gr/",
+      "telephone": ["+306944593773", "+306949125429"],
+      "email": "gentikis@otenet.gr",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Θεωρίδας 3",
+        "addressLocality": "Κηφισιά",
+        "postalCode": "14564",
+        "addressCountry": "GR"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Αττική"
+      },
+      "sameAs": [
+        "https://www.edaattikis.gr"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+<div class="admin-top-bar">
+    <div class="user-nav">
+        {% if current_user.is_authenticated %}
+            <div class="user-profile">
+                <span><i class="fa-solid fa-user-check"></i> {{ current_user.username }}</span>
+                <a href="{{ url_for('admin_dashboard') }}" title="Panel"><i class="fa-solid fa-gear"></i></a>
+                <a href="{{ url_for('logout') }}" title="Έξοδος"><i class="fa-solid fa-power-off"></i></a>
+            </div>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="login-link">
+                <i class="fa-solid fa-lock"></i> Είσοδος Διαχειριστή
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+<header class="main-header">
+    <div class="image-wrapper">
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}"
+             alt="Γεντίκης Λεωνίδας - Υδραυλικές Εγκαταστάσεις Κηφισιά"
+             class="main-logo"> </a>
+    </div>
+
+    <nav class="tab-menu">
+      <a href="{{ url_for('index') }}" class="{{ 'active' if request.endpoint == 'index' }}">Αρχική</a>
+      <a href="{{ url_for('company') }}" class="{{ 'active' if request.endpoint == 'company' }}">Η Επιχείρηση</a>
+      <a href="{{ url_for('services') }}" class="{{ 'active' if request.endpoint == 'services' }}">Υπηρεσίες</a>
+      <a href="{{ url_for('contact') }}" class="{{ 'active' if request.endpoint == 'contact' }}">Επικοινωνία</a>
+    </nav>
+
+
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer style="text-align: center; padding: 30px 20px; background: #222; color: white; margin-top: 40px;">
+    <p><strong>Γεντίκης Λεωνίδας - Υδραυλικές Εγκαταστάσεις & Φυσικό Αέριο</strong></p>
+    <p>Θεωρίδας 3, 14564 Κηφισιά | Τηλ: <a href="tel:+306944593773" style="color: #e38d1c; text-decoration: none;">6944 593773</a></p>
+    <p style="font-size: 0.9rem; opacity: 0.8;">&copy; 2026 Με επιφύλαξη παντός δικαιώματος.</p>
+  </footer>
+</body>
+</html>

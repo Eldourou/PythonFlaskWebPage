@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Επικοινωνία - Υδραυλικός Κηφισιά{% endblock %}
+{% block description %}Επικοινωνήστε με την επιχείρηση Γεντίκης Λεωνίδας για υδραυλικές υπηρεσίες στην Κηφισιά. Καλέστε μας στο 6944593773 ή στείλτε μας μήνυμα.{% endblock %}
+
+{% block content %}
+<section class="container">
+    <article class="column">
+      <h1>Επικοινωνήστε μαζί μας!</h1>
+      <p>
+        Είμαστε στη διάθεσή σας για να συζητήσουμε τις ανάγκες σας,
+        να δημιουργήσουμε μία εξατομικευμένη πρόταση για εσάς και να υλοποιήσουμε το έργο που επιθυμείτε.<br />
+        Η καταρτισμένη ομάδα μας παρέχει πλήρη καθοδήγηση σε κάθε βήμα της διαδικασίας,
+        χτίζοντας σχέση εμπιστοσύνης και αξιοπιστίας με κάθε πελάτη, ενώ διασφαλίζει την επιτυχή ολοκλήρωση κάθε έργου με απόλυτη συνέπεια.
+      </p>
+
+      <div class="contact-info">
+          <p><strong>Λεωνίδας Γεντίκης:</strong> <br>
+             <a href="tel:+306944593773">+30 6944 593773</a></p>
+
+          <p><strong>Σπύρος Γεντίκης:</strong> <br>
+             <a href="tel:+306949125429">+30 6949 125429</a></p>
+
+          <p><strong>Διεύθυνση:</strong> Θεωρίδας 3, 14564 Κηφισιά</p>
+          <p><strong>Email:</strong> <a href="mailto:gentikis@otenet.gr">gentikis@otenet.gr</a></p>
+      </div>
+    </article>
+
+    <article class="column">
+        <h2>Στείλτε μας μήνυμα!</h2>
+        <form action="{{ url_for('send_data') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <label for="txtName">Όνοματεπώνυμο*:</label>
+            <input type="text" id="txtName" name="Name" required minlength="3" maxlength="30" placeholder="Πληκτρολογήστε το όνομά σας">
+
+            <label for="txtEmail">E-mail*:</label>
+            <input type="email" id="txtEmail" name="email" required placeholder="Πληκτρολογήστε το email σας">
+
+            <label for="txtPhone">Τηλέφωνο επικοινωνίας*:</label>
+            <input type="tel" id="txtPhone" name="phone" required pattern="[0-9]{10}" placeholder="π.χ. 2101234567">
+
+            <label for="txtSubject">Θέμα / Μήνυμα:</label>
+            <textarea id="txtSubject" name="comments" rows="5" placeholder="Γράψτε το μήνυμά σας εδώ..."></textarea>
+
+            <div class="form-buttons">
+                <input type="submit" value="Αποστολή">
+                <input type="reset" value="Καθαρισμός">
+            </div>
+        </form>
+    </article>
+</section>
+{% endblock %}

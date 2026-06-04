@@ -1,0 +1,141 @@
+/* --- 1. RESET & ΒΑΣΙΚΑ (Για να δείχνουν όλοι οι browsers το ίδιο) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  --primary-color: #4b75e0;
+  --secondary-color: #e38d1c;
+  --bg-dark: #2c3e50;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+/* --- 2. ADMIN TOP BAR (Σταθερή και καθαρή) --- */
+.admin-top-bar {
+    background-color: var(--bg-dark);
+    color: white;
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    justify-content: center; /* Κεντράρισμα περιεχομένου */
+    align-items: center;
+    padding: 5px 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-top-bar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.admin-top-bar a:hover { color: var(--secondary-color); }
+
+/* --- 3. HEADER & LOGO --- */
+header.main-header {
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+.image-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-logo {
+    max-width: 100%;
+    width: 600px; /* Μέγεθος για υπολογιστή */
+    height: auto;
+}
+
+/* --- 4. ΜΕΝΟΥ ΚΑΡΤΕΛΩΝ (Κλειδωμένο σε μία σειρά για PC) --- */
+.tab-menu {
+    display: flex;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.tab-menu a {
+    flex: 1;
+    padding: 18px 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab-menu a.active { background-color: var(--secondary-color); }
+
+/* --- 5. ΦΟΡΜΕΣ & ΠΕΡΙΕΧΟΜΕΝΟ --- */
+main, .container {
+    max-width: 1500px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin: 15px 0 5px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+form input:not([type="submit"]), form textarea {
+    width: 100% !important;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- 6. RESPONSIVE (Μόνο για κινητά κάτω από 768px) --- */
+@media (max-width: 768px) {
+    .main-logo { width: 90%; }
+
+    .tab-menu {
+        flex-wrap: wrap; /* Εδώ επιτρέπουμε το σπάσιμο */
+    }
+
+    .tab-menu a {
+        flex: 1 1 50%; /* 2 καρτέλες ανά σειρά */
+        padding: 15px 5px;
+        font-size: 1rem;
+    }
+}

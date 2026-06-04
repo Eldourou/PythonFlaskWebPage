@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="padding: 20px; max-width: 700px; margin: auto; background: #f9f9f9; border-radius: 10px;">
+    <h3>Ενημέρωση Ιστορικού: {{ lead[1] }}</h3>
+    <p><strong>Υπηρεσία:</strong> {{ lead[4] }}</p>
+    <hr>
+
+    <form method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <label><strong>Νέα Ενέργεια / Βήμα:</strong></label><br>
+        <textarea name="new_note" rows="3" style="width: 100%; padding: 10px; border: 2px solid #4b75e0;" placeholder="Πχ. Τηλεφώνησα και κλείσαμε ραντεβού..."></textarea>
+
+        <br><br>
+
+        <input type="hidden" name="old_notes" value="{{ lead[6] }}">
+
+        <label><strong>Προηγούμενο Ιστορικό:</strong></label><br>
+        <div style="background: white; padding: 10px; border: 1px solid #ccc; height: 200px; overflow-y: scroll; white-space: pre-wrap; font-size: small; color: #555;">
+            {{ lead[6] if lead[6] else 'Δεν υπάρχει ιστορικό.' }}
+        </div>
+
+        <br>
+        <button type="submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">
+            Προσθήκη στο Ιστορικό
+        </button>
+        <a href="{{ url_for('admin_dashboard') }}" style="margin-left: 10px; color: #666;">Ακύρωση</a>
+    </form>
+</div>
+{% endblock %}

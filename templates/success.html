@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Επιτυχία Αποστολής{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 50px;">
+    <h1 style="color: #4b75e0;">Ευχαριστούμε, {{ name }}!</h1>
+    <p>Το μήνυμά σας ελήφθη με επιτυχία.</p>
+    <p>Θα επικοινωνήσουμε μαζί σας στο <strong>{{ email }}</strong> σύντομα.</p>
+    <br>
+    <a href="{{ url_for('index') }}" style="color: #e38d1c; text-decoration: none; font-weight: bold;">
+        ← Επιστροφή στην Αρχική
+    </a>
+</div>
+{% endblock %}
