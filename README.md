@@ -103,12 +103,12 @@
 
 Εφάρμοσα τους ακόλουθους κανόνες SEO:
 
-### 1. Ονοματοδοσία Αρχείου
+1. Ονοματοδοσία Αρχείου
 Τα αρχεία μου έχουν περιγραφική ονοματοδοσία στα αγγλικά (`index.html`, `company.html`, `services.html`, `contact.html`, `admin.html`).
 
-### 2. Title Tag & 3. Meta Description
+2. Title Tag & 3. Meta Description
 Στο `base.html` υπάρχουν δυναμικά blocks:
-```html
+html
 <title>{% block title %}{% endblock %} | Γεντίκης Λεωνίδας</title>
 <meta name="description" content="{% block description %}Εξειδικευμένες υδραυλικές υπηρεσίες στην Κηφισιά από το 1999.{% endblock %}">
 •	(Λέξεις-Κλειδιά): Στα titles και τα descriptions των σελίδων πρόσθεσα δυνατές λέξεις-κλειδιά όπως «Υδραυλικός Κηφισιά», «Αποφράξεις», «Φυσικό Αέριο».<br>
