@@ -108,9 +108,9 @@
 
 2. Title Tag & 3. Meta Description
 Στο `base.html` υπάρχουν δυναμικά blocks:
-html
+HTML
 <title>{% block title %}{% endblock %} | Γεντίκης Λεωνίδας</title>
-<meta name="description" content="{% block description %}Εξειδικευμένες υδραυλικές υπηρεσίες στην Κηφισιά από το 1999.{% endblock %}">
+<meta name="description" content="{% block description %}Εξειδικευμένες υδραυλικές υπηρεσίες στην Κηφισιά από το 1999.{% endblock %}"><br>
 •	(Λέξεις-Κλειδιά): Στα titles και τα descriptions των σελίδων πρόσθεσα δυνατές λέξεις-κλειδιά όπως «Υδραυλικός Κηφισιά», «Αποφράξεις», «Φυσικό Αέριο».<br>
 4. Responsive Σχεδίαση<br>
 •	Υπάρχει στο base.html η απαραίτητη γραμμή:<br>
