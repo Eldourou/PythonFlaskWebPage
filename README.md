@@ -102,19 +102,19 @@
 Πρόοδος που σημειώθηκε στην εργασία: 
 
 Εφάρμοσα τους ακόλουθους κανόνες SEO:
-1. Ονοματοδοσία Αρχείου
+1. Ονοματοδοσία Αρχείου<br>
 •	Τα αρχεία μου έχουν περιγραφική ονοματοδοσία στα αγγλικά (index.html, company.html, services.html, contact.html, admin.html).
-2. Title Tag & 3. Meta Description
+2. Title Tag & 3. Meta Description<br>
 •	Στο base.html ύπάρχουν δυναμικά blocks:
 <title>{% block title %}{% endblock %} | Γεντίκης Λεωνίδας</title>
-<meta name="description" content="{% block description %}Εξειδικευμένες υδραυλικές υπηρεσίες στην Κηφισιά από το 1999.{% endblock %}">
-•	(Λέξεις-Κλειδιά): Στα titles και τα descriptions των σελίδων πρόσθεσα δυνατές λέξεις-κλειδιά όπως «Υδραυλικός Κηφισιά», «Αποφράξεις», «Φυσικό Αέριο».
-4. Responsive Σχεδίαση
-•	Υπάρχει στο base.html η απαραίτητη γραμμή:
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-Επιπλέον, στο style1.css έχω βάλει @media (max-width: 768px) για να προσαρμόζεται το μενού και το λογότυπο στα κινητά.
-5. Σωστή Δομή Επικεφαλίδων
-•	Κάθε σελίδα σου έχει μόνο ένα <h1>.
+<meta name="description" content="{% block description %}Εξειδικευμένες υδραυλικές υπηρεσίες στην Κηφισιά από το 1999.{% endblock %}"><br>
+•	(Λέξεις-Κλειδιά): Στα titles και τα descriptions των σελίδων πρόσθεσα δυνατές λέξεις-κλειδιά όπως «Υδραυλικός Κηφισιά», «Αποφράξεις», «Φυσικό Αέριο».<br>
+4. Responsive Σχεδίαση<br>
+•	Υπάρχει στο base.html η απαραίτητη γραμμή:<br>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><br>
+Επιπλέον, στο style1.css έχω βάλει @media (max-width: 768px) για να προσαρμόζεται το μενού και το λογότυπο στα κινητά.<br>
+5. Σωστή Δομή Επικεφαλίδων<br>
+•	Κάθε σελίδα σου έχει μόνο ένα <h1>.<br>
 6. Semantic HTML
 •	Στο base.html χρησιμοποιώ <header>, <nav>, <main>, και <footer>. Στα άλλα html χρησιμοποιώ <section>, <article>, <section>, <figure> και <figcaption>.
 7. Εικόνες με Alt
